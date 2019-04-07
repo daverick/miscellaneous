@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress
+  namespace: assessment
+  labels:
+    app: wordpress
+spec:
+  clusterIP: None
+  selector:
+    app: wordpress
+  ports:
+  - port: 80

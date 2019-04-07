@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-nginx
+  namespace: assessment
+data:
+  nginx.conf: "events{}\nhttp{\n  server{\n    listen 80;\n    location / {\n     proxy_set_header Host $host;\n     proxy_set_header X-Real-IP $remote_addr;\n     proxy_pass http://wordpress/;\n    }\n  }\n}"
